@@ -6,6 +6,8 @@ const sessionBodyCreateSchema = z.object({
   password: z.string().max(255),
 });
 
-// Realizar o Retorno de token depois!
+const sessionReturnSchema = z.object({
+  token: z.string(),
+});
 
-export { sessionBodyCreateSchema };
+export { sessionBodyCreateSchema, sessionReturnSchema };

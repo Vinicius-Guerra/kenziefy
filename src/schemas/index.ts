@@ -21,4 +21,5 @@ export {
 
 export {
   sessionBodyCreateSchema,
+  sessionReturnSchema,
 } from "./session.schemas";
