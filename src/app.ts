@@ -1,3 +1,7 @@
+import "reflect-metadata";
+import "helmet";
+import "dotenv/config";
+import cors from "cors";
 import express from "express";
 import "express-async-errors";
 import {
@@ -8,8 +12,14 @@ import {
   sessionRouter,
 } from "./routers";
 import { handleErrors } from "./middlewares";
+import helmet from "helmet";
 
 const app = express();
+
+app.use(cors());
+
+app.use(helmet());
+
 app.use(express.json());
 
 app.use("/api/bands", bandRouter);
