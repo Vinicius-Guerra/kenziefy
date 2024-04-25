@@ -1,13 +1,14 @@
 import { Router } from "express";
 import { ensure } from "../middlewares";
 import { bandPayloadCreateSchema } from "../schemas";
-import { bandService,  } from "../services";
+import { BandServices, bandService,  } from "../services";
 import { musicianController } from "../controllers/musician.controllers";
 import { BandControllers } from "../controllers";
+import { container } from "tsyringe";
 
 export const bandRouter = Router();
-
-const bandController = new BandControllers(bandService);
+container.registerSingleton("BandServices", BandServices);
+const bandController = container.resolve(BandControllers);
 
 bandRouter.get("", bandController.list);
 
@@ -19,3 +20,4 @@ bandRouter.post(
 
 // MUSICIANS
 bandRouter.post("/:bandId/musicians", musicianController.create);
+// bandRouter.get("/:bandId/musicians");

@@ -10,3 +10,5 @@ sessionRouter.post(
   ensure.bodyIsValid(sessionBodyCreateSchema),
   sessionController.login
 );
+
+// accountRouter.get("", accountController.list);

@@ -1,16 +1,31 @@
 import { Router } from "express";
 import { AccountControllers } from "../controllers";
-import { accountService } from "../services/account.services";
+import { AccountService, accountService } from "../services/account.services";
 import { auth, ensure, ensureAccount } from "../middlewares";
 import { accountPayloadCreateSchema } from "../schemas";
+import { container } from "tsyringe";
 
 export const accountRouter = Router();
+container.registerSingleton("AccountService", AccountService);
+const accountControllers = container.resolve(AccountControllers);
 
-const accountControllers = new AccountControllers(accountService);
+accountRouter.post(
+    "",
+    ensure.bodyIsValid(accountPayloadCreateSchema),
+    accountControllers.create
+);
 
-accountRouter.post("", ensure.bodyIsValid(accountPayloadCreateSchema), ensureAccount.usernameIsUnique(accountService), accountControllers.create);
+accountRouter.get(
+    "",
+    // auth.isAuthenticated,
+    // auth.isAccountOwner
+    accountControllers.list
+);
 
-accountRouter.get("", accountControllers.list);
-
-accountRouter.get("/:accountId",auth.isAuthenticated, auth.isAccountOwner, accountControllers.retrieve);
+accountRouter.get(
+    "/:accountId",
+    auth.isAuthenticated,
+    auth.isAccountOwner,
+    accountControllers.retrieve
+);
 

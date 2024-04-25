@@ -1,13 +1,16 @@
 import { Request, Response } from "express";
 import { AlbumService } from "../services";
 import { status } from "../utils/httpStatusCode";
+import { IAlbumService } from "../interfaces/album.interfaces";
 
 
 
 export class AlbumControllers {
-    
-    private service = new AlbumService();
 
+    constructor(private service: IAlbumService) {
+        this.service = service;
+    }
+    
     public create = async (req: Request, res: Response): Promise<Response> => {
         const album = await this.service.create(req.body);
 
@@ -21,4 +24,4 @@ export class AlbumControllers {
     };
 };
 
-export const albumController = new AlbumControllers();
+// export const albumController = new AlbumControllers();

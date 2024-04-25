@@ -1,5 +1,5 @@
 export { BandServices, bandService } from "./band.services";
-export { AlbumService } from "./album.services";
+export { albumService, AlbumService } from "./album.services";
 export { TrackService } from "./track.services";
 export { MusicianService } from "./musician.services";
 export { AccountService } from "./account.services";

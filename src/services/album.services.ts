@@ -17,5 +17,6 @@ export class AlbumService {
         return albumSchema.parse(newAlbum);
     };
 
-
 }
+
+export const albumService = new AlbumService();
