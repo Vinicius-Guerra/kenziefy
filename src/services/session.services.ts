@@ -1,8 +1,8 @@
 import { compare } from "bcrypt";
 import { prisma } from "../database/database";
 import { AppError } from "../errors/appError";
-import { SessionBodyCreate } from "../interfaces/session.interfaces";
-import { sessionBodyCreateSchema } from "../schemas";
+import { SessionBodyCreate, SessionReturn } from "../interfaces/session.interfaces";
+import { sessionBodyCreateSchema, sessionReturnSchema } from "../schemas";
 import { status } from "../utils/httpStatusCode";
 import { jwtConfig } from "../configs";
 import { sign } from "jsonwebtoken";

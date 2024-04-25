@@ -1,5 +1,5 @@
-import { prisma } from "../database/database";
 import { Track, TrackPayloadCreate, TrackRetrieve } from "../interfaces/track.schemas";
+import { prisma } from "../database/database";
 import { trackSchema, trackRetrieveSchema } from "../schemas";
 
 export class TrackService {

@@ -1,7 +1,10 @@
+import { injectable } from "tsyringe";
 import { prisma } from "../database/database";
 import { Band, BandPayloadCreate, IBandService } from "../interfaces/band.interfaces";
 import { bandSchema } from "../schemas";
 
+
+@injectable()
 export class BandServices implements IBandService {
     private band = prisma.band;
 
