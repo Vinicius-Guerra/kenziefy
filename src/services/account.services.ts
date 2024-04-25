@@ -2,7 +2,11 @@ import { hash } from "bcrypt";
 import { prisma } from "../database/database";
 import { AccountPayloadCreate, AccountReturn, IAccountService } from "../interfaces/account.interfaces";
 import { accountReturnSchema } from "../schemas";
+import { injectable } from "tsyringe";
+import { AppError } from "../errors/appError";
+import { status } from "../utils/httpStatusCode";
 
+@injectable()
 export class AccountService implements IAccountService {
     private account = prisma.account;
 
@@ -21,6 +25,12 @@ export class AccountService implements IAccountService {
     public create = async (
         payload: AccountPayloadCreate
       ): Promise<AccountReturn> => {
+        const foundAccount = await this.isUsernameUnique(payload.username);
+
+        if(foundAccount) {
+            throw new AppError("Username already exists.", status.HTTP_409_CONFLICT);
+        }
+
         payload.password = await hash(payload.password, 10);
 
         const newAccount = await this.account.create({ data: payload });
