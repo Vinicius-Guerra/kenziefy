@@ -2,6 +2,7 @@ import { prisma } from "../database/database";
 import { Musician, MusicianPayload } from "../interfaces/musician.interfaces";
 import { musicianSchema } from "../schemas";
 
+
 export class MusicianService {
     private musician = prisma.musician;
 

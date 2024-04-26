@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { sessionController } from "../controllers";
+import { SessionControllers } from "../controllers/session.controllers";
 import { ensure } from "../middlewares";
 import { sessionBodyCreateSchema } from "../schemas";
 
 export const sessionRouter = Router();
+
+const sessionController = new SessionControllers();
 
 sessionRouter.post(
   "/login",

@@ -16,9 +16,8 @@ const trackRetrieveSchema = trackSchema
   .extend({ album: albumSchema });
 
 export {
-    trackSchema,
-    trackPayloadSchema,
-    trackRetrieveSchema,
-    trackBodyCreateSchema,
- };
- 
+  trackSchema,
+  trackPayloadSchema,
+  trackRetrieveSchema,
+  trackBodyCreateSchema,
+};

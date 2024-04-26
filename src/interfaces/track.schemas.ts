@@ -3,7 +3,7 @@ import {
   trackSchema,
   trackPayloadSchema,
   trackRetrieveSchema,
-} from "../schemas";
+} from "../schemas/track.schemas";
 
 type Track = z.infer<typeof trackSchema>;
 type TrackPayloadCreate = z.infer<typeof trackPayloadSchema>;

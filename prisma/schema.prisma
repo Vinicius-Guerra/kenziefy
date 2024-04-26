@@ -29,7 +29,7 @@ model Track{
   id Int @id @default(autoincrement())
   title String @db.VarChar(255)
   trackNumber Int?
-  legth  Int
+  length  Int
 
   albumId Int
   album   Album @relation(fields: [albumId], references: [id])

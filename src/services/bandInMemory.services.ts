@@ -1,6 +1,7 @@
 import { Band, BandPayloadCreate, IBandService } from "../interfaces/band.interfaces";
 import { bandSchema } from "../schemas";
 
+
 const bandsDB: Array<Band> = [];
 
 const genNextId = (): number => {

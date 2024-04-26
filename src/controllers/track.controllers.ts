@@ -31,5 +31,3 @@ export class TrackControllers {
         return res.status(status.HTTP_200_OK).json(tracks);
     };
 }
-
-export const trackController = new TrackControllers();

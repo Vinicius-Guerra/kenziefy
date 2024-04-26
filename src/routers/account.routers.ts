@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { AccountControllers } from "../controllers";
+import { AccountControllers } from "../controllers/account.controllers";
 import { AccountService, accountService } from "../services/account.services";
-import { auth, ensure, ensureAccount } from "../middlewares";
+import { auth,  } from "../middlewares/auth.middleware";
+import { ensure } from "../middlewares/ensure.middleware";
 import { accountPayloadCreateSchema } from "../schemas";
 import { container } from "tsyringe";
 

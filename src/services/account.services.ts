@@ -1,4 +1,4 @@
-import { hash } from "bcrypt";
+import { hash } from "bcryptjs";
 import { prisma } from "../database/database";
 import { AccountPayloadCreate, AccountReturn, IAccountService } from "../interfaces/account.interfaces";
 import { accountReturnSchema } from "../schemas";

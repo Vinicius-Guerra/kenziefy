@@ -12,4 +12,3 @@ export class SessionControllers {
 
 };
 
-export const sessionController = new SessionControllers();

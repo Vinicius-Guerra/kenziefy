@@ -23,5 +23,3 @@ export class AlbumControllers {
         return res.status(status.HTTP_200_OK).json(albums);
     };
 };
-
-// export const albumController = new AlbumControllers();

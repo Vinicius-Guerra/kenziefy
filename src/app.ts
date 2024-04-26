@@ -7,6 +7,8 @@ import "express-async-errors";
 import { handleErrors } from "./middlewares";
 import helmet from "helmet";
 import { initRoutes } from "./routers";
+import { jwtConfig } from "./configs";
+import { initSwagger } from "./configs/swagger";
 
 const app = express();
 
@@ -15,6 +17,8 @@ export const initApp = () => {
   app.use(helmet());
   app.use(express.json());
   initRoutes(app);
+  jwtConfig();
+  initSwagger(app);
   app.use(handleErrors);
 }
 

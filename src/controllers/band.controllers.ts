@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { status } from "../utils/httpStatusCode";
 import { IBandService } from "../interfaces/band.interfaces";
+import { inject, injectable } from "tsyringe";
 
+@injectable()
 export class BandControllers {
-    constructor(private service: IBandService) {
-        this.service = service;
-    }
+    constructor(@inject("BandService") private service: IBandService) {}
 
     public create = async (req: Request, res: Response): Promise<Response> => {
         const band = await this.service.create(req.body);

@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import { IAccountService } from "../interfaces/account.interfaces";
 import { status } from "../utils/httpStatusCode";
+import { inject, injectable } from "tsyringe";
 
+@injectable()
 export class AccountControllers {
 
-    constructor(private service: IAccountService) {
-        this.service = service;
-    }
+    constructor(@inject("AccountService") private service: IAccountService) {}
 
     public create = async (req: Request, res: Response): Promise<Response> => {
         const account = await this.service.create(req.body);

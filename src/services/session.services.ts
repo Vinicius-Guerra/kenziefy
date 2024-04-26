@@ -1,11 +1,12 @@
-import { compare } from "bcrypt";
 import { prisma } from "../database/database";
 import { AppError } from "../errors/appError";
+import { compare } from "bcryptjs";
 import { SessionBodyCreate, SessionReturn } from "../interfaces/session.interfaces";
 import { sessionBodyCreateSchema, sessionReturnSchema } from "../schemas";
 import { status } from "../utils/httpStatusCode";
 import { jwtConfig } from "../configs";
 import { sign } from "jsonwebtoken";
+
 
 export class SessionServices {
     private account = prisma.account;

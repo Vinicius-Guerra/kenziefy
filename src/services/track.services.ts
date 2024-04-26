@@ -2,6 +2,7 @@ import { Track, TrackPayloadCreate, TrackRetrieve } from "../interfaces/track.sc
 import { prisma } from "../database/database";
 import { trackSchema, trackRetrieveSchema } from "../schemas";
 
+
 export class TrackService {
   private track = prisma.track;
 
