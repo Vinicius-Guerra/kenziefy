@@ -1,0 +1,65 @@
+paths:
+  /api/albums:
+    get:
+      security:
+        - JWTAuth: []
+      tags:
+        - Albums
+      summary: List albums
+      description: List all albums.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Album"
+    post:
+      security:
+        - JWTAuth: []
+      tags:
+        - Tracks
+      summary: Create album
+      description: Create and return a album.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Album"
+      responses:
+        201:
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Album"
+        400:
+          $ref: "#/components/responses/BadRequest"
+  /api/albums/{albumId}/tracks:
+    get:
+      security:
+        - JWTAuth: []
+      tags:
+        - Albums
+      parameters:
+        - id: albumId
+          in: path
+          description: Tracks for album id retrieve.
+          required: true
+          schema:
+            type: integer
+      summary: Retrieve a track
+      description: Retrieve a track by id.
+      reponses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Track"
+        404:
+          $ref: "#/components/responses/NotFound"
+

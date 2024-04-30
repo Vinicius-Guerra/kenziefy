@@ -1,0 +1,26 @@
+components:
+  schemas:
+    Album:
+      type: object
+      required:
+        - title
+        - year
+        - bandId
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          example: 1
+        title:
+          type: string
+          description: Required. 255 characters of fewer.
+          maxLength: 255
+          example: Meu novo album
+        year:
+          type: integer
+          example: 1
+          description: Required. Positive integer.
+        bandId:
+          type: integer
+          example: 1
+          description: Required. Positive integer.
