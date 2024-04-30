@@ -1,0 +1,35 @@
+components:
+  schemas:
+    Account:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          example: 1
+        username:
+          type: string
+          description: Required. 50 characters of fewer.
+          maxLength: 50
+          example: username
+        password:
+          type: string
+          description: Required. 255 characters of fewer.
+          maxLength: 255
+          example: password
+        favoriteColor:
+          type: string
+          description: Optional. 255 characters of fewer.
+          example: blue
+          nullish: true
+        createdAt:
+          type: date
+          example: 01-01-2000
+          description: Required.
+        updatedAt:
+          type: date
+          example: 01-01-2000
+          description: Required.

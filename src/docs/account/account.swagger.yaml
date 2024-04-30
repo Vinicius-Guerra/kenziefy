@@ -1,0 +1,61 @@
+paths:
+  /api/accounts:
+    post:
+      tags:
+        - Accounts
+      summary: Create account
+      description: Create and return an account.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Account"
+      responses:
+        201:
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        400:
+          $ref: "#/components/responses/BadRequest"
+    get:
+      tags:
+        - Accounts
+      summary: List accounts
+      description: List all accounts.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Account"
+
+  /api/accounts/{accountId}:
+    get:
+      security:
+        - JWTAuth: []
+      tags:
+        - Accounts
+      parameters:
+        - name: accountId
+          in: path
+          description: Account for id retrieve.
+          required: true
+          schema:
+            type: integer
+      summary: Retrieve an account
+      description: Retrieve an account by id.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        404:
+          $ref: "#/components/responses/NotFound"
