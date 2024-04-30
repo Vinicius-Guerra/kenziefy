@@ -3,23 +3,23 @@ paths:
     get:
       tags:
         - Tracks
-      summary: List Tracks
+      summary: List tracks
       description: List all tracks.
       responses:
         200:
           description: OK
-          content: 
+          content:
             application/json:
               schema:
                 type: array
-                items: 
+                items:
                   $ref: "#/components/schemas/Track"
     post:
       tags:
         - Tracks
-      summary: Create track
+      summary: Create track.
       description: Create and return a track.
-      requestBody: 
+      requestBody:
         required: true
         content:
           application/json:
@@ -28,9 +28,9 @@ paths:
       responses:
         201:
           description: CREATED
-          content: 
+          content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Band"
+                $ref: "#/components/schemas/Track"
         400:
           $ref: "#/components/responses/BadRequest"
