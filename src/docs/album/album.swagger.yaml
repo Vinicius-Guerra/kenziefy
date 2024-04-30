@@ -62,4 +62,28 @@ paths:
                 $ref: "#/components/schemas/Track"
         404:
           $ref: "#/components/responses/NotFound"
+  /api/albums/{albumId}/tracks:
+    post:
+      security:
+        - JWTAuth: []
+      tags:
+          - Albums
+        parameters:
+          - id: albumId
+            in: path
+            description: Create track for album id valid.
+            required: true
+            schema:
+              type: integer
+        summary: Create a track
+        description: create a track by album id.
+        reponses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Track"
+          404:
+            $ref: "#/components/responses/BadRequest"  
 
