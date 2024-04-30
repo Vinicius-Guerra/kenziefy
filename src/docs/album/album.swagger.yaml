@@ -22,7 +22,7 @@ paths:
       tags:
         - Albums
       summary: Create album
-      description: Create and return a album.
+      description: Create and return an album.
       requestBody:
         required: true
         content:
@@ -38,6 +38,7 @@ paths:
                 $ref: "#/components/schemas/Album"
         400:
           $ref: "#/components/responses/BadRequest"
+
   /api/albums/{albumId}/tracks:
     get:
       security:
@@ -45,7 +46,7 @@ paths:
       tags:
         - Albums
       parameters:
-        - id: albumId
+        - name: albumId
           in: path
           description: Tracks for album id retrieve.
           required: true
@@ -53,7 +54,7 @@ paths:
             type: integer
       summary: Retrieve a track
       description: Retrieve a track by id.
-      reponses:
+      responses:
         200:
           description: OK
           content:
@@ -62,28 +63,27 @@ paths:
                 $ref: "#/components/schemas/Track"
         404:
           $ref: "#/components/responses/NotFound"
-  /api/albums/{albumId}/tracks:
     post:
       security:
         - JWTAuth: []
       tags:
-          - Albums
-        parameters:
-          - id: albumId
-            in: path
-            description: Create track for album id valid.
-            required: true
-            schema:
-              type: integer
-        summary: Create a track
-        description: create a track by album id.
-        reponses:
-          200:
-            description: OK
-            content:
-              application/json:
-                schema:
-                  $ref: "#/components/schemas/Track"
-          404:
-            $ref: "#/components/responses/BadRequest"  
+        - Albums
+      parameters:
+        - name: albumId
+          in: path
+          description: Create track for album id valid.
+          required: true
+          schema:
+            type: integer
+      summary: Create a track
+      description: Create a track by album id.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Track"
+        404:
+          $ref: "#/components/responses/BadRequest"
 
