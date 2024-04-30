@@ -20,7 +20,7 @@ paths:
       security:
         - JWTAuth: []
       tags:
-        - Tracks
+        - Albums
       summary: Create album
       description: Create and return a album.
       requestBody:
