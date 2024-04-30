@@ -34,3 +34,26 @@ paths:
                 $ref: "#/components/schemas/Track"
         400:
           $ref: "#/components/responses/BadRequest"
+  /api/tracks/{trackId}:
+    get:
+      tags:
+        - Tracks
+      parameters:
+        - title: trackId
+          in: path
+          description: Track id for retrieve.
+          required: true
+          schema:
+            type: integer
+      summary: Retrieve a track
+      description: Retrieve a track by id.
+      reponses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Track"
+        404:
+          $ref: "#/components/responses/NotFound"
+
