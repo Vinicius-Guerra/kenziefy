@@ -1,0 +1,22 @@
+paths:
+  /api/login:
+    post:
+      tags:
+        - Session
+      summary: Login Session
+      description: Login session.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Session"
+      responses:
+        201:
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Session"
+        400:
+          $ref: "#/components/responses/BadRequest"

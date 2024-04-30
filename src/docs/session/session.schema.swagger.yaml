@@ -1,0 +1,19 @@
+components:
+  schemas:
+    Session:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          description: Required. 50 characters of fewer.
+          maxLength: 50
+          example: username
+        password:
+          type: string
+          description: Required. 255 characters of fewer.
+          maxLength: 255
+          example: password
+          
