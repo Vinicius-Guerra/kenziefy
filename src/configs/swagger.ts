@@ -11,7 +11,7 @@ const options = {
         version: "0.0.1",
       },
     },
-    apis: ["./src/routers/*.ts", "./src/schemas/*.ts"],
+    apis: ["./src/docs/**/*.swagger.yaml"],
   };
 
 
